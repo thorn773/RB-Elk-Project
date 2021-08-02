@@ -2,12 +2,12 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![image](https://user-images.githubusercontent.com/82982907/127882541-f033ffeb-35d9-4b2d-ae3b-4547cc956ff2.png)
+[Network Diagram](https://github.com/thorn773/RB-Elk-Project/blob/99724fbb35c8b12da477dfcac11fa6118b6af31c/ELK-Stack_Diagram.png)
 
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  [Ansible Elk Playbook](https://github.com/thorn773/RB-Elk-Project/blob/facaf3822c39018b8e330d6fcb7f124eaaa736d8/install-elk.yml)
 
 This document contains the following details:
 - Description of the Topology
