@@ -7,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  [Ansible Elk Playbook](https://github.com/thorn773/RB-Elk-Project/blob/facaf3822c39018b8e330d6fcb7f124eaaa736d8/install-elk.yml)
+  [Ansible Elk Playbook](YAML Files/Install-ELK.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -66,7 +66,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Docker Screenshot](https://github.com/thorn773/RB-Elk-Project/blob/716eec9648d95418d19f3ade00f2a984dce0d91a/docker-ps.png)
+![Docker Screenshot](Images/docker-ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -85,12 +85,14 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the [Elk Playbook](https://github.com/thorn773/RB-Elk-Project/blob/facaf3822c39018b8e330d6fcb7f124eaaa736d8/install-elk.yml) file to your ansible container. You can use ```curl https://pastebin.com/raw/Vtf8SfJ8 > /etc/ansible/install-elk.yml``` for convenience
+- Copy the [Elk Playbook](YAML Files/Install-ELK.yml) file to your ansible container. You can use ```curl https://pastebin.com/raw/Vtf8SfJ8 > /etc/ansible/install-elk.yml``` for convenience
 - Update the ```hosts``` file to include the servers to be updated (in this scenario, the ELK host server with its IP address)
 - Run the playbook using ```ansible-playbook intstall-elk.yml```, and navigate to your Elk Server's Public IP on Port 5601 to check that the installation worked as expected: ```http://[your.ELK-VM.External.IP]:5601```
 
 From there you can install Metricbeat and/or Filebeat:
-- In the Ansible container, copy the [Filebeat Playbook](https://github.com/thorn773/RB-Elk-Project/blob/f979c9831961de419785f4e6eb0db9d3ad7f9f77/filebeat-playbook.yml)
+- In the Ansible container, copy the [Filebeat Playbook](YAML Files/Filebeat-Playbook.yml) or [Metricbeat Playbook](YAML Files/Metricbeat-Playbook.yml)
 - Make sure your ```hosts``` file has the IP(s) of the machine(s) you wish to monitor in the Websevers section.
-- Run the playbook using ```ansible-playbook filebeat-playbook.yml```
-- Verify that it is running properly by navigating back to ```http://[your.ELK-VM.External.IP]:5601```, go to Add Log Data, System Logs, and scroll down to Module Status. Click check data and it should return with ```Data sucessfully retrieved from this module```
+- Run the playbook using ```ansible-playbook filebeat-playbook.yml``` or ```ansible-playbook metricbeat-playbook.yml```
+- Verify that Filebeat is running properly by navigating back to ```http://[your.ELK-VM.External.IP]:5601```, go to Add Log Data, System Logs, and scroll down to Module Status. Click check data and it should return with ```Data sucessfully retrieved from this module```
+- Verify Metricbeat is running properly by navigating back to ```http://[your.ELK-VM.External.IP]:5601```, go to Add Metric Data, Docker Metrics, and scroll down to Module Status. Click check data and it should return with ```Data sucessfully retrieved from this module```
+
